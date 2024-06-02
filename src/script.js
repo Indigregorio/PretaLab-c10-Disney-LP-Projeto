@@ -1,20 +1,25 @@
-let numeroAleatorio = 0;
+let numeroAleatorio = 50;
 let tentativas = 0;
 
 function jogoDeAdivinhacao() {
      const palpiteDigitado = pegarPalpiteDigitado ();
 
-     if (!palpiteDigitado){
+     if (!palpiteDigitado) {
     alert("Digite um valor válido");
+    return;
     }
     
-    if (palpiteDigitado === numeroAleatorio){
+    if (palpiteDigitado === numeroAleatorio) {
         alert("Parabéeens, você adivinhou!");
     } else if (palpiteDigitado > numeroAleatorio) {
-        atualizarFeedback("O número é muito alto. Tente novamente! :( ")
-    } else {
-        atualizarFeedback("O número é muito baixo. Tente novamete! :( ")
+        tentativas++
+        atualizarFeedback("O número é muito alto. Tente novamente! :( ");
+    } else if (palpiteDigitado < numeroAleatorio) {
+        tentativas++;
+        atualizarFeedback("O número é muito baixo. Tente novamete! :( ");
     }
+    const novaPontuacao = 100 - (tentativas * 10);
+    atualizarPontuacao(novaPontuacao);
 
 
 }
