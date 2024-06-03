@@ -1,4 +1,4 @@
-let numeroAleatorio = 50;
+let numeroAleatorio = Math.floor(Math.random () * 100) +1;
 let tentativas = 0;
 
 function jogoDeAdivinhacao() {
@@ -11,6 +11,8 @@ function jogoDeAdivinhacao() {
     
     if (palpiteDigitado === numeroAleatorio) {
         alert("Parabéeens, você adivinhou!");
+        reiniciarJogo()
+        return;
     } else if (palpiteDigitado > numeroAleatorio) {
         tentativas++
         atualizarFeedback("O número é muito alto. Tente novamente! :( ");
@@ -18,12 +20,24 @@ function jogoDeAdivinhacao() {
         tentativas++;
         atualizarFeedback("O número é muito baixo. Tente novamete! :( ");
     }
-    const novaPontuacao = 100 - (tentativas * 10);
-    atualizarPontuacao(novaPontuacao);
 
+    const novaPontuacao = 100 - (tentativas * 10);
+    atualizarPontuacao(novaPontuacao); 
+    
+    const palpitesFalhos = pegarPalpitesFalhos();
+    const novoPalpitesFalhos = palpitesFalhos + " " + palpiteDigitado;
+    atualizarPalpitesFalhos(novoPalpitesFalhos);
 
 }
 
 function reiniciarJogo() {
-    // to-do
+    const desejaReiniciar = confirm("Tem certeza que reiniciará seu jogo?");
+    if (desejaReiniciar === true) { 
+        tentativas = 0;
+        
+        atualizarPalpitesFalhos("");
+        atualizarPontuacao(100);
+        atualizarFeedback(" ");
+        limparPalpiteDigitado();
+    }
 }
