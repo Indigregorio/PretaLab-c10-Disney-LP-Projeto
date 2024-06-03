@@ -111,7 +111,7 @@ Certifique-se de seguir cada passo cuidadosamente para garantir que suas contrib
 - [ ] **Envie as Alterações para o GitHub:**
    - [ x ] Envie os commits para sua branch usando o comando `git push`.
 
-- [ ] **Publique no netlify**
+- [ x ] **Publique no netlify**
 
 ## Conclusão
 
