@@ -8,6 +8,10 @@ function jogoDeAdivinhacao() {
     alert("Digite um valor válido");
     return;
     }
+    else if (palpiteDigitado <= 0 || palpiteDigitado > 100){
+        alert("Por favor, digite um número entre 1 e 100.");
+        return;
+    }
     
     if (palpiteDigitado === numeroAleatorio) {
         alert("Parabéeens, você adivinhou!");
@@ -28,13 +32,17 @@ function jogoDeAdivinhacao() {
     const novoPalpitesFalhos = palpitesFalhos + " " + palpiteDigitado;
     atualizarPalpitesFalhos(novoPalpitesFalhos);
 
+    const pontuacaoAtual = pegarPontuacao();
+    if (pontuacaoAtual === "Você tem 0 pontos") {
+    alert("Cê perdeu, uai! Chegou a 0 pontos. Dê seus pulos!");
+    reiniciarJogo();
+    }
+
 }
 
 function reiniciarJogo() {
-    const desejaReiniciar = confirm("Tem certeza que reiniciará seu jogo?");
-    if (desejaReiniciar === true) { 
-        tentativas = 0;
-        
+    const desejaReiniciar = confirm("Deseja jogar novamente?");
+    if (desejaReiniciar) { 
         atualizarPalpitesFalhos("");
         atualizarPontuacao(100);
         atualizarFeedback(" ");

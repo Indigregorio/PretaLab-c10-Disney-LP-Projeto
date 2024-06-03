@@ -11,10 +11,10 @@ Vamos iniciar um jogo de adivinhação projeto final do módulo de lógica de pr
   3. [ x ] Atualizar a pontuação a cada palpite errado.
   4. [ x ] Mostrar todos os palpites errados do jogo para evitar que repitam o erro.
   5. [ x ] Possibilidade de poder reiniciar o jogo a qualquer momento.
-  6. [ ] Se a pontuação chegar a zero, deve ser exibido um alerta e o jogo reiniciado.
+  6. [ x ] Se a pontuação chegar a zero, deve ser exibido um alerta e o jogo reiniciado.
 
 ### ----- Momento individual -----
-  7. [ ] Só deve aceitar numeros entre 1 e 100.
+  7. [ x ] Só deve aceitar numeros entre 1 e 100.
   8. [ ] Não deve aceitar palpite repetido. Ou seja, o usuário deve ser alertado de que já tentou esse palpite, não devemos contar como palpite, nem adicionar na lista de palpites errados.
   9. [ ] Publicar no netlify
 
