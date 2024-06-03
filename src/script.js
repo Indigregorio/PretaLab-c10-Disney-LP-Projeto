@@ -1,5 +1,6 @@
 let numeroAleatorio = Math.floor(Math.random () * 100) +1;
 let tentativas = 0;
+let palpitesRepetidos = [];
 
 function jogoDeAdivinhacao() {
      const palpiteDigitado = pegarPalpiteDigitado ();
@@ -12,6 +13,12 @@ function jogoDeAdivinhacao() {
         alert("Por favor, digite um número entre 1 e 100.");
         return;
     }
+    if (palpitesRepetidos.includes(palpiteDigitado)) {
+        alert("Você já tentou esse número, tente outro.");
+    return;
+    }
+
+    (palpitesRepetidos.push(palpiteDigitado));
     
     if (palpiteDigitado === numeroAleatorio) {
         alert("Parabéeens, você adivinhou!");
@@ -42,7 +49,11 @@ function jogoDeAdivinhacao() {
 
 function reiniciarJogo() {
     const desejaReiniciar = confirm("Deseja jogar novamente?");
+    console.log(desejaReiniciar);
+   
     if (desejaReiniciar) { 
+        tentativas = 0;
+        palpitesRepetidos =[]
         atualizarPalpitesFalhos("");
         atualizarPontuacao(100);
         atualizarFeedback(" ");
