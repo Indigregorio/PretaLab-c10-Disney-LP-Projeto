@@ -30,7 +30,7 @@ function jogoDeAdivinhacao() {
     } else if (palpiteDigitado < numeroAleatorio) {
         tentativas++;
         atualizarFeedback("O número é muito baixo. Tente novamete! :( ");
-    }
+    } 
 
     const novaPontuacao = 100 - (tentativas * 10);
     atualizarPontuacao(novaPontuacao); 
